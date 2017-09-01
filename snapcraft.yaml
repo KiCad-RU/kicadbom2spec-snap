@@ -1,17 +1,17 @@
 name: kicadbom2spec
-version: "3dev-snap1"
+version: "3.11-snap1"
 summary: Построение перечней элементов для схем выполненных в САПР KiCad.
 description: |
   Приложение kicadbom2spec создает файл перечня элементов в виде таблицы *.ods в
   формате Open Document Format, оформленной согласно требованиям ЕСКД, используя
   файл схемы в формате KiCad Schematic. Также позволяет редактировать поля
   элементов схем и библиотек.
-confinement: devmode
-grade: devel
+confinement: classic
+grade: stable
 
 apps:
   kicadbom2spec:
-    command: desktop-launch $SNAP/usr/share/kicadbom2spec/kicadbom2spec.pyw
+    command: usr/share/kicadbom2spec/kicadbom2spec.pyw
     plugs: [home, unity7]
 
 parts:
@@ -46,4 +46,3 @@ parts:
       - python-odf
     organize:
       usr/lib/wx/python/wx3.0.pth: usr/lib/python2.7/dist-packages/wx.pth
-    after: [desktop-gtk2]
