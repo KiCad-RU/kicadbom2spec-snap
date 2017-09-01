@@ -31,6 +31,12 @@ parts:
       sample: usr/share/kicadbom2spec/sample/
       settings.ini: usr/share/kicadbom2spec/
       version: usr/share/kicadbom2spec/
+    stage:
+      - -archlinux
+      - -checkinstall
+      - -doc
+      - -gui.fbp
+      - -windows
 
   deps:
     plugin: nil
