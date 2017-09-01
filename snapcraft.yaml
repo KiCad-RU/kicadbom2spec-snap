@@ -1,42 +1,43 @@
 name: kicadbom2spec
-version: "3.9"
+version: "3dev-snap1"
 summary: Построение перечней элементов для схем выполненных в САПР KiCad.
 description: |
   Приложение kicadbom2spec создает файл перечня элементов в виде таблицы *.ods в
   формате Open Document Format, оформленной согласно требованиям ЕСКД, используя
   файл схемы в формате KiCad Schematic. Также позволяет редактировать поля
   элементов схем и библиотек.
-confinement: strict
+confinement: devmode
+grade: devel
 
 apps:
   kicadbom2spec:
-    command: desktop-launch $SNAP/share/kicadbom2spec/kicadbom2spec.pyw
-    plugs: [home, mount-observe, unity7]
+    command: desktop-launch $SNAP/usr/share/kicadbom2spec/kicadbom2spec.pyw
+    plugs: [home, unity7]
 
 parts:
   kicadbom2spec:
-    plugin: copy
+    plugin: dump
     source: lp:kicadbom2spec
-    files:
-      bitmaps/*: share/kicadbom2spec/bitmaps/
-      doc/help_linux.pdf: share/kicadbom2spec/doc/
-      sample/*: share/kicadbom2spec/sample/
-      CHANGELOG: share/kicadbom2spec/
-      COPYING: share/kicadbom2spec/
-      complist.py: share/kicadbom2spec/
-      gui.py: share/kicadbom2spec/
-      kicadbom2spec.pyw: share/kicadbom2spec/
-      kicadsch.py: share/kicadbom2spec/
-      pattern.ods: share/kicadbom2spec/
-      README: share/kicadbom2spec/
-      settings.ini: share/kicadbom2spec/
-      version: share/kicadbom2spec/
-      checkinstall/kicadbom2spec.desktop: share/applications/
-      bitmaps/icon.svg: share/icons/kicadbom2spec.svg
+    organize:
+      '*.py': usr/share/kicadbom2spec/
+      '*.pyw': usr/share/kicadbom2spec/
+      CHANGELOG: usr/share/kicadbom2spec/
+      COPYING: usr/share/kicadbom2spec/
+      README: usr/share/kicadbom2spec/
+      bitmaps: usr/share/kicadbom2spec/bitmaps/
+      doc/images: usr/share/kicadbom2spec/doc/images/
+      doc/user_manual.html: usr/share/kicadbom2spec/doc/
+      pattern.ods: usr/share/kicadbom2spec/
+      sample: usr/share/kicadbom2spec/sample/
+      settings.ini: usr/share/kicadbom2spec/
+      version: usr/share/kicadbom2spec/
+
+  deps:
+    plugin: nil
     stage-packages:
       - python2.7
       - python-wxgtk3.0
       - python-odf
     organize:
       usr/lib/wx/python/wx3.0.pth: usr/lib/python2.7/dist-packages/wx.pth
-    after: [desktop/gtk2]
+    after: [desktop-gtk2]
