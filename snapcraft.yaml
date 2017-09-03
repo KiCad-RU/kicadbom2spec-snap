@@ -1,5 +1,5 @@
 name: kicadbom2spec
-version: "3.11-snap1"
+version: "3-snap1"
 summary: Построение перечней элементов для схем выполненных в САПР KiCad.
 description: |
   Приложение kicadbom2spec создает файл перечня элементов в виде таблицы *.ods в
@@ -7,7 +7,7 @@ description: |
   файл схемы в формате KiCad Schematic. Также позволяет редактировать поля
   элементов схем и библиотек.
 confinement: classic
-grade: stable
+grade: devel
 
 apps:
   kicadbom2spec:
