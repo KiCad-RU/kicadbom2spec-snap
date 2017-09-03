@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=kicadbom2spec
+Name=KiCadBOM2Spec
 Comment=Create lists of the components for KiCad schematics.
 Comment[ru]=Построение перечней элементов для схем выполненных в САПР KiCad.
 Categories=Development;Electronics;
-Exec=kicadbom2spec.pyw
+Exec=kicadbom2spec %f
 Icon=${SNAP}/meta/gui/icon.svg
 Type=Application
